@@ -11,9 +11,6 @@ public class Lab12 {
                 current_index++;
             }
         }
-        for (int i = 0; i < arr_length-current_index; i++) {
-            arr.removeLast();
-        }
 
         return arr.size();
     }
