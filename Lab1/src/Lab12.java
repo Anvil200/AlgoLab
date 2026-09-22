@@ -1,18 +1,20 @@
-import java.util.ArrayList;
 import java.util.List;
 
 public class Lab12 {
     public int removeElementInplace(List<Integer> arr, int val) {
-        List<Integer> arr_new = new ArrayList<Integer>();
-        arr_new.addAll(arr);
+        int current_index = 0;
+        int arr_length = arr.size();
 
-        for (int i = 0; i < arr_new.size(); i++) {
-            if (arr_new.get(i) == val) {
-                arr_new.remove(i);
-                i--;
+        for (int i = 0; i < arr_length; i++) {
+            if (arr.get(i) != val) {
+                arr.set(current_index, arr.get(i));
+                current_index++;
             }
         }
-        return arr_new.size();
+        for (int i = 0; i < arr_length-current_index; i++) {
+            arr.removeLast();
+        }
+
+        return arr.size();
     }
 }
-
