@@ -2,13 +2,21 @@ public class MinStackImpl implements MinStack<Integer>{
 
     MyLinkedList head;
 
+    public MinStackImpl() {
+
+    }
     @Override
     public void push(Integer value) {
-        head.add(value);
+        if (head == null) {
+            head = new MyLinkedList(value, value, null);
+        } else {
+            head.add(value);
+        }
     }
 
     @Override
     public Integer pop() {
+        if (head == null) { return null; }
         int val = head.get_val();
         head = head.get_next();
         return val;
